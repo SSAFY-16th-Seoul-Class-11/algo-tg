@@ -29,13 +29,14 @@ DAILY_BLOCK_PATTERN = re.compile(
     re.MULTILINE,
 )
 
+# [Easy] [네트워크1](url) 형태 및 [네트워크1](url) 형태 모두 매칭 가능
 MARKDOWN_LINK_PATTERN = re.compile(
-    r"^(?:[-*]\s*)?\[(?P<title>.+?)]\((?P<url>.+?)\)\s*$"
+    r"^(?:[-*]\s*)?(?:\[(?P<level>Easy|Normal|Hard|Level\s*\d+)\]\s*)?\[(?P<title>.+?)]\((?P<url>.+?)\)\s*$",
+    re.IGNORECASE
 )
 
 
 def sanitize(name: str) -> str:
-    # 파일/폴더 시스템에서 허용되지 않는 특수문자 제거 (대괄호 [] 는 유지)
     invalid = r'<>:"/\\|?*'
 
     for character in invalid:
@@ -63,24 +64,35 @@ def extract_daily_blocks(text: str) -> list[tuple[str, str]]:
     return blocks
 
 
-def clean_problem_title(title: str) -> str:
-    # 기존에 붙어있던 [Easy], [Normal], [Hard] 등의 난이도 태그를 정제
-    return re.sub(r"^\[(Easy|Normal|Hard|Level\s*\d+)\]\s*", "", title).strip()
+def extract_links(body: str) -> list[dict[str, str]]:
+    links: list[dict[str, str]] = []
+    default_levels = ["Easy", "Normal", "Hard"]
 
+    for idx, line in enumerate(body.splitlines()):
+        line = line.strip()
+        if not line:
+            continue
 
-def extract_links(body: str) -> list[tuple[str, str]]:
-    links: list[tuple[str, str]] = []
-
-    for line in body.splitlines():
-        match = MARKDOWN_LINK_PATTERN.match(line.strip())
+        match = MARKDOWN_LINK_PATTERN.match(line)
 
         if not match:
             continue
 
-        problem_title = clean_problem_title(match.group("title"))
+        level = match.group("level")
+        if not level:
+            level = default_levels[idx] if idx < len(default_levels) else f"Level {idx + 1}"
+
+        problem_title = match.group("title").strip()
+        # 혹시 제목에 남아있을 수 있는 난이도 태그 제거
+        problem_title = re.sub(r"^\[(Easy|Normal|Hard|Level\s*\d+)\]\s*", "", problem_title, flags=re.IGNORECASE).strip()
+        
         problem_url = match.group("url").strip()
 
-        links.append((problem_title, problem_url))
+        links.append({
+            "level": level.capitalize(),
+            "title": problem_title,
+            "url": problem_url
+        })
 
     if not links:
         raise ValueError("문제 블록에서 문제 링크를 찾지 못했습니다.")
@@ -114,9 +126,8 @@ def detect_platform_tag(url: str) -> str:
 
 def build_daily_readme(
     title: str,
-    links: Iterable[tuple[str, str]],
+    links: list[dict[str, str]],
 ) -> str:
-    levels = ["Easy", "Normal", "Hard"]
     lines = [
         f"# {title} 문제",
         "",
@@ -124,25 +135,19 @@ def build_daily_readme(
         "",
     ]
 
-    for idx, (problem_title, problem_url) in enumerate(links):
-        level_tag = levels[idx] if idx < len(levels) else f"Level {idx + 1}"
-        lines.append(f"- [{level_tag}] [{problem_title}]({problem_url})")
+    for item in links:
+        lines.append(f"- [{item['level']}] [{item['title']}]({item['url']})")
 
     lines.append("")
     return "\n".join(lines)
 
 
 def build_problem_folder_name(
-    problem_title: str,
-    problem_url: str,
-    idx: int,
+    item: dict[str, str],
 ) -> str:
-    levels = ["Easy", "Normal", "Hard"]
-    level_tag = levels[idx] if idx < len(levels) else f"Level {idx + 1}"
-    platform_tag = detect_platform_tag(problem_url)
-
+    platform_tag = detect_platform_tag(item["url"])
     # 폴더명 형식: [PGS] [Easy] 네트워크1
-    return sanitize(f"[{platform_tag}] [{level_tag}] {problem_title}")
+    return sanitize(f"[{platform_tag}] [{item['level']}] {item['title']}")
 
 
 def extract_member_section(text: str) -> str:
@@ -425,40 +430,9 @@ def build_code_template(
     return ""
 
 
-def update_root_readme_with_levels(readme_text: str) -> tuple[str, bool]:
-    levels = ["Easy", "Normal", "Hard"]
-
-    def replace_block(match: re.Match) -> str:
-        title = match.group("title")
-        body = match.group("body")
-
-        new_body_lines = []
-        link_idx = 0
-
-        for line in body.splitlines():
-            link_match = MARKDOWN_LINK_PATTERN.match(line.strip())
-            if link_match:
-                prob_title = clean_problem_title(link_match.group("title"))
-                prob_url = link_match.group("url").strip()
-
-                level_tag = levels[link_idx] if link_idx < len(levels) else f"Level {link_idx + 1}"
-                link_idx += 1
-
-                new_line = f"[{level_tag}] [{prob_title}]({prob_url})  "
-                new_body_lines.append(new_line)
-            else:
-                new_body_lines.append(line)
-
-        return f"### 🟨 {title} 문제\n" + "\n".join(new_body_lines) + "\n\n"
-
-    updated_text = DAILY_BLOCK_PATTERN.sub(replace_block, readme_text)
-    is_changed = updated_text != readme_text
-    return updated_text, is_changed
-
-
 def generate_daily_folder(
     daily_title: str,
-    links: list[tuple[str, str]],
+    links: list[dict[str, str]],
     members: list[dict[str, object]],
 ) -> None:
     safe_title = sanitize(daily_title)
@@ -481,12 +455,8 @@ def generate_daily_folder(
         build_daily_readme(daily_title, links),
     )
 
-    for idx, (problem_title, problem_url) in enumerate(links):
-        problem_folder_name = build_problem_folder_name(
-            problem_title,
-            problem_url,
-            idx,
-        )
+    for item in links:
+        problem_folder_name = build_problem_folder_name(item)
 
         problem_directory = (
             daily_directory
@@ -507,7 +477,7 @@ def generate_daily_folder(
             problem_readme,
             build_problem_readme(
                 problem_folder_name,
-                problem_url,
+                item["url"],
             ),
         )
 
@@ -548,11 +518,6 @@ def main() -> None:
         readme_text = ROOT_README.read_text(
             encoding="utf-8"
         )
-
-        updated_readme_text, is_changed = update_root_readme_with_levels(readme_text)
-        if is_changed:
-            ROOT_README.write_text(updated_readme_text, encoding="utf-8")
-            readme_text = updated_readme_text
 
         daily_blocks = extract_daily_blocks(
             readme_text
