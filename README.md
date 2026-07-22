@@ -1,4 +1,4 @@
-# Daily ALGO 뿌셔뿌셔
+# 알고특강
 
 ---
 <table>
