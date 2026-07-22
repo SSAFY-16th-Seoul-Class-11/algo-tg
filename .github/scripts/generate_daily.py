@@ -23,7 +23,7 @@ LANG_EXTENSIONS = {
 }
 
 DAILY_BLOCK_PATTERN = re.compile(
-    r"^###\s*🟨\s*(?P<title>.+?)\s*데일리\s*문제\s*$"
+    r"^###\s*🟨\s*(?P<title>.+?)\s*문제\s*$"
     r"(?P<body>[\s\S]*?)"
     r"(?=^###\s|^##\s|\Z)",
     re.MULTILINE,
