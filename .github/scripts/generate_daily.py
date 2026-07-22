@@ -126,6 +126,39 @@ def build_daily_readme(
     lines.append("")
     return "\n".join(lines)
 
+def update_root_readme_with_levels(readme_text: str) -> tuple[str, bool]:
+    levels = ["Easy", "Normal", "Hard"]
+
+    def replace_block(match: re.Match) -> str:
+        title = match.group("title")
+        body = match.group("body")
+
+        new_body_lines = []
+        link_idx = 0
+
+        for line in body.splitlines():
+            link_match = MARKDOWN_LINK_PATTERN.match(line.strip())
+            if link_match:
+                prob_title = link_match.group("title").strip()
+                prob_url = link_match.group("url").strip()
+
+                # 이미 [Easy], [Normal] 등의 태그가 붙어있다면 제거 후 새로 부여
+                clean_title = re.sub(r"^\[(Easy|Normal|Hard|Level\s*\d+)\]\s*", "", prob_title)
+
+                level_tag = levels[link_idx] if link_idx < len(levels) else f"Level {link_idx + 1}"
+                link_idx += 1
+
+                new_line = f"[{level_tag}] [{clean_title}]({prob_url})  "
+                new_body_lines.append(new_line)
+            else:
+                new_body_lines.append(line)
+
+        return f"### 🟨 {title} 문제\n" + "\n".join(new_body_lines) + "\n\n"
+
+    updated_text = DAILY_BLOCK_PATTERN.sub(replace_block, readme_text)
+    is_changed = updated_text != readme_text
+    return updated_text, is_changed
+
 
 def build_problem_folder_name(
     problem_title: str,
@@ -530,44 +563,23 @@ def main() -> None:
         sys.exit(1)
 
     try:
-        readme_text = ROOT_README.read_text(
-            encoding="utf-8"
-        )
+        readme_text = ROOT_README.read_text(encoding="utf-8")
 
-        daily_blocks = extract_daily_blocks(
-            readme_text
-        )
+        # 1. 메인 README.md 내용에 난이도 태그 반영 및 저장
+        updated_readme_text, is_changed = update_root_readme_with_levels(readme_text)
+        if is_changed:
+            ROOT_README.write_text(updated_readme_text, encoding="utf-8")
+            print("메인 README.md 난이도 태그 업데이트 완료")
+            readme_text = updated_readme_text  # 최신 텍스트로 교체
 
-        member_section = extract_member_section(
-            readme_text
-        )
-
-        members = extract_members(
-            member_section
-        )
-
-        print(
-            f"daily_blocks_count: "
-            f"{len(daily_blocks)}"
-        )
-
-        for member in members:
-            print(
-                f"member: {member['username']} "
-                f"{member['languages']}"
-            )
+        # 2. 기존 폴더 및 파일 생성 로직 진행
+        daily_blocks = extract_daily_blocks(readme_text)
+        member_section = extract_member_section(readme_text)
+        members = extract_members(member_section)
 
         for daily_title, daily_body in daily_blocks:
             links = extract_links(daily_body)
-
-            print(f"daily_title: {daily_title}")
-            print(f"links_count: {len(links)}")
-
-            generate_daily_folder(
-                daily_title,
-                links,
-                members,
-            )
+            generate_daily_folder(daily_title, links, members)
 
     except ValueError as error:
         print(f"생성 실패: {error}")
