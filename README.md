@@ -41,19 +41,22 @@
 
 <!-- 이 부분을 업데이트하면 자동으로 파일이 생성됩니다. -->
 <!-- provlem_solve/{일자}/{스터디멤버 깃헙 id} 형태로 생성됩니다.  -->
-### 🟨 y주차 문제
+### 🟨 3주차 문제
 
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
-[Easy] [네트워크](https://school.programmers.co.kr/learn/courses/30/lessons/43162)  
-[Normal] [정수 삼각형](https://school.programmers.co.kr/learn/courses/30/lessons/43105)  
-[Hard] [야근 지수](https://school.programmers.co.kr/learn/courses/30/lessons/12927)
+[Easy] 
+[올바른 괄호](https://school.programmers.co.kr/learn/courses/30/lessons/12909)
+[Normal]
+[네트워크](https://school.programmers.co.kr/learn/courses/30/lessons/43162)  
+[Hard]
+[도둑질](https://school.programmers.co.kr/learn/courses/30/lessons/42897)
 
 <br />
 
 ### :pencil: Rule  
-1. 데일리 필수 문제는 꼭 풀어야 합니다.
-2. 빠르게 성장하실 분은 선택 문제도 풀어보아요.
+1. Easy, Normal은 꼭 풀기!
+2. Hard는 도전해보기.
 3. 매주 정기 스터디 1번 필참해주세요.
 
 <br />
