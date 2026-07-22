@@ -146,8 +146,8 @@ def build_problem_folder_name(
     item: dict[str, str],
 ) -> str:
     platform_tag = detect_platform_tag(item["url"])
-    # 폴더명 형식: [PGS] [Easy] 네트워크1
-    return sanitize(f"[{platform_tag}] [{item['level']}] {item['title']}")
+    # 폴더명 형식: [레벨] [태그] {문제이름}
+    return sanitize(f"[{item['level']}] [{platform_tag}] {item['title']}")
 
 
 def extract_member_section(text: str) -> str:
