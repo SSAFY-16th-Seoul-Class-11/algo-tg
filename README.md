@@ -26,12 +26,14 @@
     <td align="center"><a href="https://github.com/skyblue1232"><img src="https://avatars.githubusercontent.com/skyblue1232" width="150px;" alt="oneul0"></a></td>
     <td align="center"><a href="https://github.com/Hian02"><img src="https://avatars.githubusercontent.com/Hian02" width="150px;" alt="oneul0"></a></td>
     <td align="center"><a href="https://github.com/Nerororo"><img src="https://avatars.githubusercontent.com/Nerororo" width="150px;" alt="oneul0"></a></td>
+    <td align="center"><a href="https://github.com/NewOld21"><img src="https://avatars.githubusercontent.com/NewOld21" width="150px;" alt="oneul0"></a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/mojunsul"><b>서동균</b></a></td>
     <td align="center"><a href="https://github.com/skyblue1232"><b>고민균</b></a></td>
     <td align="center"><a href="https://github.com/Hian02"><b>안서현</b></a></td>
     <td align="center"><a href="https://github.com/Nerororo"><b>김동준</b></a></td>
+    <td align="center"><a href="https://github.com/NewOld21"><b>김세헌</b></a></td>
   </tr>
   
 </table>
