@@ -22,18 +22,24 @@
 ## 👩‍👦‍👦 **스터디 멤버**
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/mojunsul"><img src="https://avatars.githubusercontent.com/mojunsul" width="150px;" alt="oneul0"></a></td>
-    <td align="center"><a href="https://github.com/skyblue1232"><img src="https://avatars.githubusercontent.com/skyblue1232" width="150px;" alt="oneul0"></a></td>
-    <td align="center"><a href="https://github.com/Hian02"><img src="https://avatars.githubusercontent.com/Hian02" width="150px;" alt="oneul0"></a></td>
-    <td align="center"><a href="https://github.com/Nerororo"><img src="https://avatars.githubusercontent.com/Nerororo" width="150px;" alt="oneul0"></a></td>
-    <td align="center"><a href="https://github.com/NewOld21"><img src="https://avatars.githubusercontent.com/NewOld21" width="150px;" alt="oneul0"></a></td>
+    <td align="center"><a href="https://github.com/mojunsul"><img src="https://avatars.githubusercontent.com/mojunsul" width="150px;" alt="mojunsul"></a></td>
+    <td align="center"><a href="https://github.com/skyblue1232"><img src="https://avatars.githubusercontent.com/skyblue1232" width="150px;" alt="mojunsul"></a></td>
+    <td align="center"><a href="https://github.com/Hian02"><img src="https://avatars.githubusercontent.com/Hian02" width="150px;" alt="mojunsul"></a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/mojunsul"><b>서동균</b></a></td>
     <td align="center"><a href="https://github.com/skyblue1232"><b>고민균</b></a></td>
     <td align="center"><a href="https://github.com/Hian02"><b>안서현</b></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Nerororo"><img src="https://avatars.githubusercontent.com/Nerororo" width="150px;" alt="mojunsul"></a></td>
+    <td align="center"><a href="https://github.com/NewOld21"><img src="https://avatars.githubusercontent.com/NewOld21" width="150px;" alt="mojunsul"></a></td>
+    <td align="center"><a href="https://github.com/77romin"><img src="https://avatars.githubusercontent.com/77romin" width="150px;" alt="mojunsul"></a></td>
+  </tr>
+  <tr>
     <td align="center"><a href="https://github.com/Nerororo"><b>김동준</b></a></td>
     <td align="center"><a href="https://github.com/NewOld21"><b>김세헌</b></a></td>
+    <td align="center"><a href="https://github.com/77romin"><b>김강민</b></a></td>
   </tr>
   
 </table>
@@ -48,14 +54,15 @@
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
 [Easy] [올바른 괄호](https://school.programmers.co.kr/learn/courses/30/lessons/12909)  
+[Easy] [최댓값과 최솟값](https://school.programmers.co.kr/learn/courses/30/lessons/12939)  
 [Normal] [네트워크](https://school.programmers.co.kr/learn/courses/30/lessons/43162)  
 [Hard] [도둑질](https://school.programmers.co.kr/learn/courses/30/lessons/42897)  
 
 <br />
 
-### :pencil: Rule  
-1. Easy, Normal은 꼭 풀기!
-2. Hard는 도전해보기.
+### 🤝 Rule  
+1. 3문제 이상 꼭 풀기!
+2. 가능 하면 4문제 다 풀어보기!
 3. 매주 정기 스터디 1번 필참해주세요.
 
 <br />
@@ -64,7 +71,7 @@
 이제 막 방향성을 정하고 있는 스터디입니다. 의견이 있으시면 편하게 말씀해주세요!
 ```
 -알고리즘
-주 3문제 (easy, normal, hard)
+주 3~4문제 (easy 2문제, normal 1문제, hard 1문제 중 3개 필수! 가능하면 4개)
 주 1회 모임 : 문제 풀이 피드백
 
 -면접
@@ -95,27 +102,13 @@
 problem_solve/{날짜 또는 회차}/{[문제출처] 문제이름}/{GitHub 사용자명}.{확장자}
 ```
 
-<br/>
-
-## ⚠️ commit 규칙
-
-```text
-{[문제출처] 문제이름}
-```
-
-- 💡 예시: [PGS] 네트워크
-
----
-
-<br />
-
 ## ⚠️ PR 규칙
 
 ```text
-{문제 종류} - {문제 개수} 문제
+{n주차}
 ```
 
-- 💡 예시: `필수문제 - 3문제`
+- 💡 예시: 3주차
 
 ---
 
