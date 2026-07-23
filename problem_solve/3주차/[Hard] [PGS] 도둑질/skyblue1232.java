@@ -1,5 +1,5 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.*;
 
 class Main {
     public static void main(String[] args) throws Exception {
@@ -10,40 +10,26 @@ class Main {
 }
 
 class Solution {
-	public int solution(int n, int[][] computers) {
-		boolean[] visited = new boolean[n];
-		int answer = 0;
-		
-		for(int i=0; i<n;i++) {
-			if(visited[i]) {
-				continue;
-			}
-			
-			answer++;		
-			
-			int[] stack = new int[n];
-			int top=0;
-			
-			stack[top] = i;
-			top++;
-			visited[i] = true;
-			
-			while(top>0) {
-				top--;
-				int current = stack[top];
-				
-				for(int next=0; next<n;next++) {
-					if(computers[current][next]==1 && !visited[next]) {
-						visited[next] = true;
-						
-						stack[top] = next;
-						top++;
-					}
-				}
-			}
-		}
-		
-		return answer;
-	}
-}
+    public int solution(int[] money) {
+        int n = money.length;
 
+        int[] dp1 = new int[n];
+        int[] dp2 = new int[n];
+
+        dp1[0] = money[0];
+        dp1[1] = Math.max(money[0], money[1]);
+
+        for (int i = 2; i < n - 1; i++) {
+            dp1[i] = Math.max(dp1[i - 1], dp1[i - 2] + money[i]);
+        }
+
+        dp2[0] = 0;
+        dp2[1] = money[1];
+
+        for (int i = 2; i < n; i++) {
+            dp2[i] = Math.max(dp2[i - 1], dp2[i - 2] + money[i]);
+        }
+
+        return Math.max(dp1[n - 2], dp2[n - 1]);
+    }
+}
