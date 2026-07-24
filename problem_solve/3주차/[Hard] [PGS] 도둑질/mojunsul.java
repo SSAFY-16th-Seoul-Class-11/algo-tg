@@ -15,6 +15,6 @@ class Solution {
         	}
         }
         
-        return Math.max(dp[0][N-1], dp[1][N-1]);
+        return Math.max(dp[0][N-1], dp[1][N-2]);
     }
 }
