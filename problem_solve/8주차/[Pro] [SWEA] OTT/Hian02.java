@@ -340,12 +340,3 @@ class UserSolution {
         return res;
     }
 }
-
-O(V)
-
-따라서 전체 공간복잡도는
-
-O(V + W)
-
-입니다.
-*/
