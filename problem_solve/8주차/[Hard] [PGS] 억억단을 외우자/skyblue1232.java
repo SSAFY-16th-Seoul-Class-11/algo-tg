@@ -39,3 +39,6 @@ class Solution {
   작으면 기존 정답을 그대로 저장한다.
 - 마지막으로 starts의 각 값에 대해 best[start]를 answer에 넣는다.
 */
+
+// 시간복잡도: O(e log e)
+// 공간복잡도: O(e + starts.length) -> O(e)
