@@ -51,16 +51,14 @@
 
 <!-- 이 부분을 업데이트하면 자동으로 파일이 생성됩니다. -->
 <!-- provlem_solve/{일자}/{스터디멤버 깃헙 id} 형태로 생성됩니다.  -->
-### 📝💯 8주차 문제
+### 📝💯 9주차 문제
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
 [Hard] [억억단을 외우자](https://school.programmers.co.kr/learn/courses/30/lessons/138475)  
 [Hard] [연속 펄스 부분 수열의 합](https://school.programmers.co.kr/learn/courses/30/lessons/161988)  
-[Pro] [경유지운송](https://swexpertacademy.com/main/talk/solvingClub/problemView.do?solveclubId=AZt8IiBqxEDHBIN6&contestProbId=AZih4lcKvKDHBINp&probBoxId=AZt8IiBqxEHHBIN6&type=PROBLEM&problemBoxTitle=B%ED%98%95+%EA%B8%B0%EC%B6%9C&problemBoxCnt=31)  
-[Pro] [도로 파괴](https://swexpertacademy.com/main/talk/solvingClub/problemView.do?solveclubId=AZt8IiBqxEDHBIN6&contestProbId=AZvan5jq8gHHBIN6&probBoxId=AZt8IiBqxEHHBIN6&type=PROBLEM&problemBoxTitle=B%ED%98%95+%EA%B8%B0%EC%B6%9C&problemBoxCnt=31)  
-[Pro] [OTT](https://swexpertacademy.com/main/talk/solvingClub/problemView.do?solveclubId=AZt8IiBqxEDHBIN6&contestProbId=AZihtsqquEXHBINp&probBoxId=AZt8IiBqxEHHBIN6&type=PROBLEM&problemBoxTitle=Pro+%EA%B8%B0%EC%B6%9C&problemBoxCnt=31)  
+[Hard] [Addition and Sum](https://codeforces.com/edu/course/2/lesson/5/2/practice/contest/279653/problem/D) 
 
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 <br />
