@@ -51,15 +51,14 @@
 
 <!-- 이 부분을 업데이트하면 자동으로 파일이 생성됩니다. -->
 <!-- provlem_solve/{일자}/{스터디멤버 깃헙 id} 형태로 생성됩니다.  -->
-### 📝💯 11주차 문제
+### 📝💯 12주차 문제
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
-[Normal] [3282. 0/1 Knapsack](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWBJAVpqrzQDFAWr)  
-[Normal] [완전범죄](https://school.programmers.co.kr/learn/courses/30/lessons/389480?language=java)  
-[Hard] [에어컨](https://school.programmers.co.kr/learn/courses/30/lessons/214289)  
-[Hard] [8501. 은비의 동전 뒤집기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWz50CHK8DgDFARQ)  
+[Normal] [소수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/42839) 
+[Normal] [하노이의 탑](https://school.programmers.co.kr/learn/courses/30/lessons/12946) 
+[Hard] [방의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/49190) 
 
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 <br />
