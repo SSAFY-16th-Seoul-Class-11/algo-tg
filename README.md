@@ -56,9 +56,9 @@
 
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
-[Normal] [소수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/42839) 
-[Normal] [하노이의 탑](https://school.programmers.co.kr/learn/courses/30/lessons/12946) 
-[Hard] [방의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/49190) 
+[Normal] [소수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/42839)    
+[Normal] [하노이의 탑](https://school.programmers.co.kr/learn/courses/30/lessons/12946)    
+[Hard] [방의 개수](https://school.programmers.co.kr/learn/courses/30/lessons/49190)    
 
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 <br />
