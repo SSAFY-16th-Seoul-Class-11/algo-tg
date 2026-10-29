@@ -55,15 +55,15 @@
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
-### 📝💯 16주차 문제
+### 📝💯 17주차 문제
 
-[Normal] [1949. [모의 SW 역량테스트] 등산로 조성](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq)     
-[Normal] [2814. 최장 경로](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV7GOPPaAeMDFAXB)    
-[Hard] [1953. [모의 SW 역량테스트] 탈주범 검거](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PpLlKAQ4DFAUq)  
+[Normal] [8191. 만화책 정렬하기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWwtYmX6hvsDFAWU)    
+[Normal] [블록 이동하기](https://school.programmers.co.kr/learn/courses/30/lessons/60063)    
+[Hard] [1,2,3 떨어트리기](https://school.programmers.co.kr/learn/courses/30/lessons/150364)    
 <br />
 
 ### 🗣️ 발표자
-안서현, 고민균
+김세헌, 김강민
 <br />
 
 ### 🤝 Rule  
