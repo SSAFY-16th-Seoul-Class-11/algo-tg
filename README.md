@@ -55,15 +55,15 @@
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
-### 📝💯 17주차 문제
+### 📝💯 18주차 문제
 
-[Normal] [8191. 만화책 정렬하기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWwtYmX6hvsDFAWU)    
-[Normal] [블록 이동하기](https://school.programmers.co.kr/learn/courses/30/lessons/60063)    
-[Hard] [1,2,3 떨어트리기](https://school.programmers.co.kr/learn/courses/30/lessons/150364)    
+[Normal] [11315. 오목 판정](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXaSUPYqPYMDFASQ)    
+[Normal] [자물쇠와 열쇠](https://school.programmers.co.kr/learn/courses/30/lessons/60059)    
+[Hard] [4012. [모의 SW 역량테스트] 요리사](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWIeUtVakTMDFAVH)    
 <br />
 
 ### 🗣️ 발표자
-김세헌, 김강민
+김동준, 서동균
 <br />
 
 ### 🤝 Rule  
