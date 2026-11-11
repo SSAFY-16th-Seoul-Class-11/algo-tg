@@ -7,8 +7,8 @@ class Solution {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
 
-        int[] dx = { 0, 0, 1, -1 };
-        int[] dy = { 1, -1, 0, 0 };
+        int[] dx = { 0, 0, 1, -1, 1, 1, -1, -1 };
+        int[] dy = { 1, -1, 0, 0, 1, -1, 1, -1 };
 
         for (int test_case = 1; test_case <= T; test_case++) {
             int N = Integer.parseInt(br.readLine());
@@ -29,7 +29,7 @@ class Solution {
 
             for (Node node : list) {
                 int cnt = 0;
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 8; i++) {
                     cnt = 1;
                     int nx = node.x;
                     int ny = node.y;
