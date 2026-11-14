@@ -55,11 +55,12 @@
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
-### 📝💯 18주차 문제
+### 📝💯 19주차 문제
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
-[Normal] [11315. 오목 판정](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXaSUPYqPYMDFASQ)    
-[Normal] [자물쇠와 열쇠](https://school.programmers.co.kr/learn/courses/30/lessons/60059)    
-[Hard] [4012. [모의 SW 역량테스트] 요리사](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWIeUtVakTMDFAVH)    
+[카드 짝 맞추기](https://school.programmers.co.kr/learn/courses/30/lessons/72415)    
+[주사위 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/258709)    
+[1865. 동철이의 일 분배](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5LuHfqDz8DFAXc)    
+<br />    
 <br />
 
 ### 🗣️ 발표자
