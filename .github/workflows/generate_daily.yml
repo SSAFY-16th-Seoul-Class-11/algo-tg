@@ -4,11 +4,16 @@ on:
   push:
     branches:
       - main
+      - CI-test
     paths:
       - README.md
 
   # Actions 화면에서 수동 실행 가능
   workflow_dispatch:
+    inputs:
+      skip:
+        description: "출제자 순서를 건너뛸 인원 수"
+        default: "0"
 
 permissions:
   contents: write
@@ -29,11 +34,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Update week and publisher
+        run: python .github/scripts/bump_week.py --base "${{ github.event.before }}" --skip "${{ inputs.skip || 0 }}"
 
       - name: Generate daily problem folders
         run: python .github/scripts/generate_daily.py
@@ -43,13 +53,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -- problem_solve
+          git add -- README.md problem_solve .github/study_state.json
 
           if git diff --cached --quiet; then
             echo "No generated changes"
             exit 0
           fi
 
-          git commit -m "chore: generate daily problem folders [skip ci]"
-          git pull --rebase origin main
+          git commit -m "chore: update week and generate daily problem folders [skip ci]"
+          git pull --rebase origin "${{ github.ref_name }}"
           git push origin "HEAD:${{ github.ref_name }}"
