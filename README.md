@@ -57,14 +57,9 @@
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 ### 📝💯 19주차 문제
 <!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
-[카드 짝 맞추기](https://school.programmers.co.kr/learn/courses/30/lessons/72415)    
+[카드 짝 맞추기](https://school.programmers.co.kr/learn/courses/30/lessons/72415)     
 [주사위 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/258709)    
 [1865. 동철이의 일 분배](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5LuHfqDz8DFAXc)    
-<br />    
-<br />
-
-### 🗣️ 발표자
-안서현, 고민균
 <br />
 
 ### 🗣️ 문제 출제자
