@@ -128,17 +128,17 @@ def save_state(state: dict) -> None:
     )
 
 
-def next_saturday(today: date) -> date:
-    """오늘 이후(오늘이 토요일이면 오늘)의 가장 가까운 토요일."""
-    return today + timedelta(days=(5 - today.weekday()) % 7)
+def next_monday(today: date) -> date:
+    """오늘 이후(오늘이 월요일이면 오늘)의 가장 가까운 월요일."""
+    return today + timedelta(days=(0 - today.weekday()) % 7)
 
 
 def render_publishers(members: list[str], index: int, today: date) -> str:
     size = len(members)
-    due = next_saturday(today)
+    due = next_monday(today)
     return (
         f"- 이번주 출제자: **{members[index % size]}** "
-        f"(출제일: {due.month}/{due.day} 토)\n"
+        f"(출제일: {due.month}/{due.day} 월)\n"
         f"- 다음주 출제자: {members[(index + 1) % size]}\n"
         f"- 순서: {' → '.join(members)}"
     )
