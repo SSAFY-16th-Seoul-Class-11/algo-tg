@@ -3,7 +3,10 @@ from __future__ import annotations
 from pathlib import Path
 import re
 import sys
-
+from pathlib import Path
+import re
+import shutil
+import sys
 
 ROOT_README = Path("README.md")
 TARGET_ROOT = Path("problem_solve")
@@ -19,6 +22,8 @@ LANG_EXTENSIONS = {
     "typescript": "ts",
     "kotlin": "kt",
 }
+
+EXT_TO_LANG = {extension: language for language, extension in LANG_EXTENSIONS.items()}
 
 LANG_ALIASES = {
     "java": "java",
@@ -265,6 +270,36 @@ def build_code_template(username: str, language: str) -> str:
 
     return ""  # java
 
+def is_untouched(problem_directory: Path) -> bool:
+    for file in problem_directory.iterdir():
+        if file.name == "README.md":
+            continue
+
+        language = EXT_TO_LANG.get(file.suffix.lstrip("."))
+
+        if language is None:
+            return False
+
+        template = build_code_template(file.stem, language)
+
+        if file.read_text(encoding="utf-8").strip() != template.strip():
+            return False
+
+    return True
+
+
+def remove_stale_problem_folders(
+    daily_directory: Path,
+    keep_names: set[str],
+) -> None:
+    for directory in daily_directory.iterdir():
+        if not directory.is_dir() or directory.name in keep_names:
+            continue
+
+        if is_untouched(directory):
+            shutil.rmtree(directory)
+        else:
+            print(f"경고: 풀이가 있는 이전 문제 폴더라 남겨둡니다 → {directory}")
 
 def generate_daily_folder(
     daily_title: str,
@@ -303,6 +338,10 @@ def generate_daily_folder(
                     problem_directory / f"{username}.{extension}",
                     build_code_template(username, language),
                 )
+    remove_stale_problem_folders(
+        daily_directory,
+        {build_problem_folder_name(item) for item in links},
+    )
 
 
 def main() -> None:

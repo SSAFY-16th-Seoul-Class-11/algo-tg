@@ -54,73 +54,22 @@
 
 <!-- 이 제목과 문제 링크를 수정해 `main` 브랜치에 push하면 `problem_solve/` 하위에 폴더 자동 생성 -->
 
-<!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
 ### 📝💯 19주차 문제
-<!-- 문제 바꾸면서 꼭!!!!!!!!! 몇 주차인지 수정하기!!!!!!!!!! -->
+<!-- 이 부분만 수정 -->
 [카드 짝 맞추기](https://school.programmers.co.kr/learn/courses/30/lessons/72415)     
 [주사위 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/258709)    
 [1865. 동철이의 일 분배](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5LuHfqDz8DFAXc)    
+<!-- 이 부분만 수정 -->
 <br />
 
 ### 🗣️ 문제 출제자
-김동준 (이번주 출제자)
-김세헌 
-고민균
-서동균
-안서현
-김강민
+<!-- PUBLISHER:START -->
+- 이번주 출제자: **김동준**
+- 다음주 출제자: 김세헌
+- 순서: 김동준 → 김세헌 → 고민균 → 서동균 → 안서현 → 김강민
+<!-- PUBLISHER:END -->
 <br />
 
-### 🤝 Rule  
-1. 2문제 이상 꼭 풀기! (미루다 몰아서 하지 않기)
-2. 가능 하면 3문제 다 풀어보기!
-3. 매주 정기 스터디 1번 필참해주세요!
-4. 정기 스터디에서 로테이션 대로 각자 주제 하나 정해서 발표 맡기.
-5. 정기 스터디 날까지 차주 주제에 맞는 문제 하나씩 찾아서 추천하기.
-
-<br />
-
-## 🙌 방향성
-이제 막 방향성을 정하고 있는 스터디입니다. 의견이 있으시면 편하게 말씀해주세요!
-```
--알고리즘
-주 3~5문제 (easy 2문제, normal 2문제, hard 1문제 중 3개 필수! 가능하면 5개)
-주 1회 모임 : 문제 풀이 피드백
-
--면접
-한 달에 한 번? 2주에 한 번?
-```
-<br />
-
-## ✅ 참여 방법
-1. 이 저장소를 `fork` 한다. 
-2. `problem_solve`에 자동 생성된 데일리 문제 폴더에서 해당 문제 디렉터리를 확인한다.
-3. 해당 문제 폴더에 자신의 소스코드를 업로드한다 (commit and push).
-4. 원본 저장소로 `Pull Request`를 보낸다. (pr 규칙 준수!)
-5. 다른 사람들의 PR을 보고 자유롭게 코드 리뷰를 한다.
-
-<br />
-
-## ✅ 소스코드 파일 이름 규칙
-
-```text
-{GitHub 사용자명}.{확장자}
-```
-
-<br />
-
-## ✅ 폴더 구조
-
-```text
-problem_solve/{날짜 또는 회차}/{[문제출처] 문제이름}/{GitHub 사용자명}.{확장자}
-```
-
-## ⚠️ PR 규칙
-
-```text
-title : {n주차}
-labels : {본인 이름}
-```
 
 ---
 
@@ -140,6 +89,7 @@ labels : {본인 이름}
 
 ## 🗃️참고 자료
 
+[문제 등록 / 자동화 가이드](guide.md)  
 [Java 코테를 위한 문법들](https://app.notion.com/p/Java-3ac8266725fc801c8d82e984b35b9afa?source=copy_link)  
 [STS 단축키](https://app.notion.com/p/STS-hotkey-3a68266725fc8016a825d1ac32320086?source=copy_link)  
 
