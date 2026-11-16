@@ -29,10 +29,11 @@ DAILY_BLOCK_PATTERN = re.compile(
     re.MULTILINE,
 )
 
-# [Easy], [Normal], [Hard], [Extreme], [Pro], [Level 1] 등 다양한 레벨 태그 및 불릿 기호 지원
+# 입력 README에 [Easy], [Normal], [Hard], [Extreme], [Pro], [Level 1] 등의
+# 태그가 남아 있어도 파싱은 되지만, 결과물에는 사용하지 않는다.
 MARKDOWN_LINK_PATTERN = re.compile(
     r"^(?:[-*]\s*)?"
-    r"(?:\[(?P<level>Easy|Normal|Hard|Extreme|Pro|Level\s*\d+)\]\s*)?"
+    r"(?:\[(?:Easy|Normal|Hard|Extreme|Pro|Level\s*\d+)\]\s*)?"
     r"\[(?P<title>.+?)\]\((?P<url>.+?)\)\s*$",
     re.IGNORECASE,
 )
@@ -69,10 +70,6 @@ def extract_daily_blocks(text: str) -> list[tuple[str, str]]:
 def extract_links(body: str) -> list[dict[str, str]]:
     links: list[dict[str, str]] = []
 
-    # 레벨이 지정되지 않았을 때 순차적으로 부여할 기본 순서
-    fallback_levels = ["Easy", "Normal", "Hard"]
-    valid_line_count = 0
-
     for line in body.splitlines():
         line = line.strip()
         if not line:
@@ -83,22 +80,11 @@ def extract_links(body: str) -> list[dict[str, str]]:
         if not match:
             continue
 
-        level = match.group("level")
-
-        # 명시된 level 태그가 없는 경우 처리
-        if not level:
-            if valid_line_count < len(fallback_levels):
-                level = fallback_levels[valid_line_count]
-            else:
-                level = f"Level {valid_line_count + 1}"
-
-        problem_title = match.group("title").strip()
-
         # 제목 안에 남아있을 수 있는 난이도 태그([Easy], [Pro] 등) 정제
         problem_title = re.sub(
             r"^\[(Easy|Normal|Hard|Extreme|Pro|Level\s*\d+)\]\s*",
             "",
-            problem_title,
+            match.group("title").strip(),
             flags=re.IGNORECASE,
         ).strip()
 
@@ -106,13 +92,10 @@ def extract_links(body: str) -> list[dict[str, str]]:
 
         links.append(
             {
-                "level": level.capitalize(),
                 "title": problem_title,
                 "url": problem_url,
             }
         )
-
-        valid_line_count += 1
 
     if not links:
         raise ValueError("문제 블록에서 문제 링크를 찾지 못했습니다.")
@@ -156,7 +139,7 @@ def build_daily_readme(
     ]
 
     for item in links:
-        lines.append(f"- [{item['level']}] [{item['title']}]({item['url']})")
+        lines.append(f"- [{item['title']}]({item['url']})")
 
     lines.append("")
     return "\n".join(lines)
@@ -166,8 +149,8 @@ def build_problem_folder_name(
     item: dict[str, str],
 ) -> str:
     platform_tag = detect_platform_tag(item["url"])
-    # 폴더명 형식: [레벨] [태그] {문제이름}
-    return sanitize(f"[{item['level']}] [{platform_tag}] {item['title']}")
+    # 폴더명 형식: [태그] {문제이름}
+    return sanitize(f"[{platform_tag}] {item['title']}")
 
 
 def extract_member_section(text: str) -> str:
