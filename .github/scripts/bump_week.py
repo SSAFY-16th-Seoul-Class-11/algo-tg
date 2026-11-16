@@ -4,7 +4,7 @@ import argparse
 import json
 import re
 import subprocess
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -128,10 +128,17 @@ def save_state(state: dict) -> None:
     )
 
 
-def render_publishers(members: list[str], index: int) -> str:
+def next_saturday(today: date) -> date:
+    """오늘 이후(오늘이 토요일이면 오늘)의 가장 가까운 토요일."""
+    return today + timedelta(days=(5 - today.weekday()) % 7)
+
+
+def render_publishers(members: list[str], index: int, today: date) -> str:
     size = len(members)
+    due = next_saturday(today)
     return (
-        f"- 이번주 출제자: **{members[index % size]}**\n"
+        f"- 이번주 출제자: **{members[index % size]}** "
+        f"(출제일: {due.month}/{due.day} 토)\n"
         f"- 다음주 출제자: {members[(index + 1) % size]}\n"
         f"- 순서: {' → '.join(members)}"
     )
@@ -209,7 +216,7 @@ def main() -> None:
 
     text, replaced = replace_publisher_section(
         text,
-        render_publishers(state["members"], state["current_index"]),
+        render_publishers(state["members"], state["current_index"], today),
     )
 
     if not replaced:
