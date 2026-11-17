@@ -137,9 +137,9 @@ def render_publishers(members: list[str], index: int, today: date) -> str:
     size = len(members)
     due = next_monday(today)
     return (
-        f"- 이번주 출제자: **{members[index % size]}** "
+        f"- 다음 출제자: **{members[index % size]}** "
         f"(출제일: {due.month}/{due.day} 월)\n"
-        f"- 다음주 출제자: {members[(index + 1) % size]}\n"
+        f"- 다다음 출제자: {members[(index + 1) % size]}\n"
         f"- 순서: {' → '.join(members)}"
     )
 
