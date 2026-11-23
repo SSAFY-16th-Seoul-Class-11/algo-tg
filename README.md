@@ -60,9 +60,9 @@
 
 ### 📝💯 19주차 문제
 <!-- 이 부분만 수정 -->
-[카드 짝 맞추기](https://school.programmers.co.kr/learn/courses/30/lessons/72415)     
-[주사위 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/258709)    
-[1865. 동철이의 일 분배](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5LuHfqDz8DFAXc)    
+[블랙홀과 소행성](https://acmicpc.net/problem/29755)     
+[투스타 춘배](https://acmicpc.net/problem/30414)    
+[수익](https://acmicpc.net/problem/4097)    
 <!-- 이 부분만 수정 -->
 <br />
 
