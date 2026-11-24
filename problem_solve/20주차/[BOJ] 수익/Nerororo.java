@@ -11,29 +11,27 @@ public class Main {
             int n = Integer.parseInt(br.readLine());
             if (n == 0) break;
 
-            int[] arr = new int[n + 1];
-            int max = -10001;
-            int idx = 0;
-            for (int i = 1; i <= n; i++) {
-                arr[i] = arr[i - 1] + Integer.parseInt(br.readLine());
-                if (arr[i] > max) {
-                    max = Math.max(max, arr[i]);
-                    idx = i;
-                }
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = Integer.parseInt(br.readLine());
             }
-           sb.append(calc(arr, idx)).append('\n');
+
+            sb.append(calc(arr, n)).append('\n');
         }
 
         System.out.print(sb.toString());
     }
 
-    public static int calc(int[] arr, int idx) {
-        int finalMax = Integer.MIN_VALUE;
+    public static long calc(int[] arr, int n) {
+        int[] dp = new int[n];
+        dp[0] = arr[0];
+        int max = arr[0];
 
-        for (int i = 0; i < idx; i++) {
-            finalMax = Math.max(finalMax, arr[idx] - arr[i]);
+        for (int i = 1; i < n; i++) {
+            dp[i] = Math.max(dp[i - 1] + arr[i], arr[i]);
+            max = Math.max(max, dp[i]);
         }
 
-        return finalMax;
+        return max;
     }
 }
