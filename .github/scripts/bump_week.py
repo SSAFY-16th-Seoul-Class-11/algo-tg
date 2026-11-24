@@ -129,8 +129,8 @@ def save_state(state: dict) -> None:
 
 
 def next_monday(today: date) -> date:
-    """오늘 이후(오늘이 월요일이면 오늘)의 가장 가까운 월요일."""
-    return today + timedelta(days=(0 - today.weekday()) % 7)
+    """오늘 이후의 가장 가까운 월요일 (오늘이 월요일이면 다음 주 월요일)."""
+    return today + timedelta(days=7 - today.weekday())
 
 
 def render_publishers(members: list[str], index: int, today: date) -> str:
