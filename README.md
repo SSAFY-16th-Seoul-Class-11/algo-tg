@@ -8,7 +8,7 @@
   </tr>
   <tr>
     <td>플랫폼</td>
-    <td>프로그래머스, 백준, SWEA, LeetCode, codeforces 등</td>
+    <td>백준, 프로그래머스, SWEA, LeetCode, codeforces 등</td>
   </tr>
   <tr>
     <td>언어</td>
